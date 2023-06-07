@@ -3,13 +3,10 @@ from selenium.webdriver.common.keys import Keys
 import schedule
 import time
 
-#Replace with the path to your Chrome driver executable
 driver_path = '/path/to/chromedriver'
 
-#Replace with the name of the contact/group you want to send the message to
 target = "babe"
 
-#Edit message to be sent
 message = "Good morning."
 
 def send_whatsapp_message():
@@ -32,13 +29,9 @@ def send_whatsapp_message():
     message_input.send_keys(Keys.ENTER)
 
     time.sleep(2)
-
     driver.quit()
 
-#Schedule the task to run every day at the specified time
 schedule.every().day.at("06:00").do(send_whatsapp_message)
-
-#continuously execute the scheduled tasks
 while True:
     schedule.run_pending()
     time.sleep(1)
